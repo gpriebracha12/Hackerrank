@@ -1,0 +1,23 @@
+import sys
+
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    def makeFib(n):
+        fiblist = [1,2]
+        for i in range(n):
+            if fiblist[i+1]+fiblist[i] < n:
+                fiblist += [fiblist[i+1]+fiblist[i]]
+            else:
+                return fiblist
+        return fiblist
+    
+    def evenFibs(fiblist):
+        nl = 0
+        for i in range(len(fiblist)):
+            if fiblist[i] % 2 == 0:
+                nl += fiblist[i]
+        return nl
+    output = evenFibs(makeFib(n))
+    print(output)
