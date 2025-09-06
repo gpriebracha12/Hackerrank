@@ -1,0 +1,15 @@
+#!/bin/python3
+
+import sys
+
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    
+    def sum_multiples(k, n):
+        m = (n-1)//k
+        return k * m * (m+1) // 2
+    
+    total = sum_multiples(3, n) + sum_multiples(5, n) - sum_multiples(15, n)
+    print(total)
