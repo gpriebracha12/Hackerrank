@@ -1,0 +1,23 @@
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    factors = []
+    for i in range(n-2):
+        if n % (i+2) == 0:
+            factors += [i+2]
+    
+    if len(factors) == 0:
+        factors += [n]
+    
+    for i in range(len(factors)):
+        primeFactors = []
+        isFactor = False
+        for factor in range(len(factors)-1):
+            if factors[-1] % factors[factor] == 0:
+                isFactor = True
+        if isFactor is False:
+            primeFactors += [factors[-1]]
+        else:
+            factors = factors[:-1]
+
+    print(max(primeFactors))
